@@ -8,13 +8,6 @@ print("hello")
 pass_vcuser = "xxxxx" # use your password 
 vc_user = 'administrator@vsphere.local' # use a vcenter user 
 
-def hosts_list(content):
-    print("Getting all ESX hosts ...")
-    host_view = content.viewManager.CreateContainerView(content.rootFolder,[vim.HostSyste],True)
-    obj = [host for host in host_view.view]
-    host_view.Destroy()
-    return obj
-
 def vc_connect():
     print('Connecting to vCenter.....', vc_name)
     s_instance = connect.SmartConnectNoSSL(host=vc_name, user=vc_user, pwd=pass_vcuser, port=443)
@@ -49,8 +42,11 @@ for ds in datastores:
     print(ds.name)
 for v in vms:
     print(v.name)
-
-print(vms)
+# The below will print the MOB ref ID's also, if need we can enable
+# print(vms)
+# print(dcs)
+# print(datastores)
+# print(hosts)
 
 atexit.register(connect.Disconnect, content)
 
