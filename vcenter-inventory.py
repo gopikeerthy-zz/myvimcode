@@ -31,6 +31,8 @@ hosts = get_all_objs(content, [vim.HostSystem])
 dcs = get_all_objs(content, [vim.Datacenter])
 # For datastores
 datastores = get_all_objs(content, [vim.Datastore])
+# For Virtual Networks/Portgroups
+vnetworks = get_all_objs(content, [vim.Network])
 # For VMs
 vms = get_all_objs(content, [vim.VirtualMachine])
 # This will print the vms, hosts, datastores, datacenter names
@@ -42,12 +44,14 @@ for ds in datastores:
     print(ds.name)
 for v in vms:
     print(v.name)
+for n in vnetworks:
+    print(n.name)
 # The below will print the MOB ref ID's also, if need we can enable
 # print(vms)
 # print(dcs)
 # print(datastores)
 # print(hosts)
-
+# print(vnetworks)
 atexit.register(connect.Disconnect, content)
 
 
