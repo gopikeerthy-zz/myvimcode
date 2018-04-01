@@ -40,13 +40,13 @@ dcs = get_all_objs(content, [vim.Datacenter])
 datastores = get_all_objs(content, [vim.Datastore])
 # For VMs
 vms = get_all_objs(content, [vim.VirtualMachine])
-
+# This will print the vms, hosts, datastores, datacenter names
 for h in hosts:
     print(h.name)
-for h in dcs:
-    print(h.name)
-for h in datastores:
-    print(h.name)
+for d in dcs:
+    print(d.name)
+for ds in datastores:
+    print(ds.name)
 for v in vms:
     print(v.name)
 
