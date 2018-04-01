@@ -38,10 +38,9 @@ hosts = get_all_objs(content, [vim.HostSystem])
 dcs = get_all_objs(content, [vim.Datacenter])
 # For datastores
 datastores = get_all_objs(content, [vim.Datastore])
-
 # For VMs
-
 vms = get_all_objs(content, [vim.VirtualMachine])
+
 for h in hosts:
     print(h.name)
 for h in dcs:
